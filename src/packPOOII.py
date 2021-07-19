@@ -1,12 +1,21 @@
 from collections import Counter
 
 class PackPOOII():
-    """ documentação"""
+    """Aplica métodos para manipulação de texto
+    
+    """
     def __init__(self):
         pass
 
     def subString(self, palavra):
-        """ documentação"""
+        """ Procura uma sub-string dentro de uma determinada string
+
+        Parametros
+        ----------
+        palavra : str
+        Endereço da string 
+    
+        """
         total = 0
         for letras in range(len(palavra)):
             if(palavra[letras: letras+6] == "banana"):
@@ -15,7 +24,17 @@ class PackPOOII():
     
 
     def deleteLine(self, arq_text, linha):
-        """ documentação"""
+        """ Deleta uma linha de um arquivo de texto
+
+        Parametros
+        ----------
+        arq_text : str
+        Nome do arquivo de texto, com a extenção.
+
+        linha : str
+        Conteúdo da linha de se deseja excluir 
+    
+        """
         with open(arq_text, "r") as f:
             lines = f.readlines()
         with open(arq_text, "w") as f:
@@ -25,21 +44,27 @@ class PackPOOII():
 
 
     def popularidade(self, arq_text, palavras):
-        """ documentação"""
-        
+        """ Retorna quantas vezes uma ou mais palavras aparecem em um arquivo de texto
+
+        Parametros
+        ----------
+        arq_text : str
+        Nome do arquivo de texto, com a extenção
+
+        palavras : str
+        Palavras que se deseja obter 
+    
+        """ 
         palavras = palavras.lower().replace(',', '').split() # tirar virgulas
 
         lista = []
         with open(arq_text, "r") as f:
             lines = f.readlines()
-            line = lines.lower().split()
         with open(arq_text, "r") as f:
             for line in lines:
+                texto = line.lower().split()
                 for p in palavras:
-                    for t in line:
+                    for t in texto:
                         if p == t:
                             lista.append(t)
         return Counter(lista) # return quando todas as palavras verificadas
-
-o = PackPOOII()
-print(o.deleteLine(input('> '), input('> ')))

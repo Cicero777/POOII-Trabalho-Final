@@ -68,3 +68,40 @@ class PackPOOII():
                         if p == t:
                             lista.append(t)
         return Counter(lista) # return quando todas as palavras verificadas
+
+    def cor(palavra, cor):
+        """ Retorna a palavra com a cor escolhida
+
+        Parametros
+        ----------
+        palavra : str
+        Texto para ter sua cor alterada
+
+        cor : str
+        Cor escolhida para o texto 
+    
+        """ 
+        cor = cor.upper()
+        if cor == "YELLOW":
+            pYellow = f"\033[33m{palavra} \033[m"
+            return pYellow
+        elif cor == "BLACK":
+            pBlack = f"\033[30m{palavra} \033[m"
+            return pBlack
+        elif cor == "RED":
+            pRed = f"\033[1;31m{palavra} \033[m"
+            return pRed
+        elif cor == "BLUE":
+            pBlue = f"\033[1;34m{palavra} \033[m"
+            return pBlue
+        elif cor == "CIAN":
+            pCian = f"\033[1;36m{palavra} \033[m"
+            return pCian
+        elif cor == "GREEN":
+            pGreen = f"\033[1;32m{palavra} \033[m"
+            return pGreen
+        elif cor == "WHITE":
+            pWhite = f"\033[37m{palavra} \033[m"
+            return pWhite
+        else:
+            return "Cor não existe"

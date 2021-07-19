@@ -2,9 +2,8 @@ from collections import Counter
 
 class PackPOOII():
     """ documentação"""
-    def __init__(self, texto):
-        self._texto = texto
-
+    def __init__(self):
+        pass
 
     def subString(self, palavra):
         """ documentação"""
@@ -12,7 +11,7 @@ class PackPOOII():
         for letras in range(len(palavra)):
             if(palavra[letras: letras+6] == "banana"):
                 total += 1
-        print(total)
+        return total
     
 
     def deleteLine(self, arq_text, linha):
@@ -25,17 +24,22 @@ class PackPOOII():
                     f.write(line)
 
 
-    def popularidade(self, palavras):
+    def popularidade(self, arq_text, palavras):
         """ documentação"""
-        texto = self._texto.lower().split()
+        
         palavras = palavras.lower().replace(',', '').split() # tirar virgulas
 
         lista = []
-
-        for p in palavras:
-            for t in texto:
-                if p == t:
-                    lista.append(t)
+        with open(arq_text, "r") as f:
+            lines = f.readlines()
+            line = lines.lower().split()
+        with open(arq_text, "r") as f:
+            for line in lines:
+                for p in palavras:
+                    for t in line:
+                        if p == t:
+                            lista.append(t)
         return Counter(lista) # return quando todas as palavras verificadas
 
-    print(popularidade("Ao nos resolver a esta tarefa, preste nos atenção nos seguintes a nos pontos:", "nos a preste"))
+o = PackPOOII()
+print(o.deleteLine(input('> '), input('> ')))

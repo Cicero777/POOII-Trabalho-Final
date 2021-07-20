@@ -2,6 +2,8 @@ LICENSE
 README.md
 pyproject.toml
 setup.cfg
+src/packPOOII/__init__.py
+src/packPOOII/packPOOII.py
 src/packPOOII.egg-info/PKG-INFO
 src/packPOOII.egg-info/SOURCES.txt
 src/packPOOII.egg-info/dependency_links.txt
